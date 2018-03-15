@@ -22,12 +22,12 @@ fs.appendFile('server.log',log+'\n', (err)=>{
 next();
 });
 
-app.use((req,res,next)=>{
-    res.render('matenence.hbs',{
-        pageTitle:'Broke Page',
-        welcomeMessage:'ouch!'
-    });
-    });
+// app.use((req,res,next)=>{
+//     res.render('matenence.hbs',{
+//         pageTitle:'Broke Page',
+//         welcomeMessage:'ouch!'
+//     });
+//     });
 
     app.use(express.static(__dirname+'/public'));
 hbs.registerHelper('getCurrentYear',()=>{
@@ -52,6 +52,14 @@ app.get('/about',(req,res)=>
 {
     res.render('about.hbs',{
         pageTitle:'About Page'
+    });
+}
+);
+
+app.get('/projects',(req,res)=>
+{
+    res.render('projects.hbs',{
+        pageTitle:'Projects Page'
     });
 }
 );
